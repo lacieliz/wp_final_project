@@ -1,7 +1,14 @@
 doctype html
-html
+html(lang='ko')
   head
-    title= title
+    block title
+      title AirBNC
+    meta(charset='UTF-8')
+    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap-theme.css')
+    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/bower_components/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='/bower_components/jquery/dist/jquery.js')
+    script(type='text/javascript', src='/bower_components/bootstrap/dist/js/bootstrap.js')
   body
     block content
