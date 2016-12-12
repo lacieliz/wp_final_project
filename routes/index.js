@@ -12,6 +12,10 @@ router.get('/signin', function(req, res, next) {
   res.render('signin');
 });
 
+router.get('/admin', function(req, res, next) {
+  res.render('index_admin');
+});
+
 router.post('/signin', function(req, res, next) {
   User.findOne({email: req.body.email}, function(err, user) {
     if (err) {
@@ -22,7 +26,11 @@ router.post('/signin', function(req, res, next) {
     } else if (user.password !== req.body.password) {
       req.flash('danger', '비밀번호가 일치하지 않습니다.');
       res.redirect('back');
-    } else {
+    } else if(req.body.email=="test@test.com"){
+          req.session.user = user;
+          req.flash('success', '관리자로 로그인 되었습니다.');
+          res.redirect('/admin');
+       }else {
       req.session.user = user;
       req.flash('success', '로그인 되었습니다.');
       res.redirect('/');
@@ -35,6 +43,6 @@ router.get('/signout', function(req, res, next) {
   req.flash('success', '로그아웃 되었습니다.');
   res.redirect('/');
 });
-//-router.use('/todos', todos);
+
 
 module.exports = router;
