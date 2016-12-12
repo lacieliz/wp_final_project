@@ -1,6 +1,10 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  .container
+    .panel.panel-danger(style='margin-top:2em')
+      .panel-heading
+        h3.panel-title= message
+      .panel-body
+        p= error.status
+    pre #{error.stack}
