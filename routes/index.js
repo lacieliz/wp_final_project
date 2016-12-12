@@ -25,7 +25,7 @@ router.post('/signin', function(req, res, next) {
     } else {
       req.session.user = user;
       req.flash('success', '로그인 되었습니다.');
-     //- res.redirect('/todos');
+      res.redirect('/');
     }
   });
 });
