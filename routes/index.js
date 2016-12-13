@@ -16,6 +16,9 @@ router.get('/admin', function(req, res, next) {
   res.render('index_admin');
 });
 
+router.get('/hosts', function(req, res, next) {
+  res.render('hosts/index');
+});
 router.post('/signin', function(req, res, next) {
   User.findOne({email: req.body.email}, function(err, user) {
     if (err) {
